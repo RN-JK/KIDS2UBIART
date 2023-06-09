@@ -3,7 +3,6 @@
 	"beatAmount": 300,
 	"milliseconds": 173151,
 	"beatType": "milliseconds",
-	"getBeatsfromBIN": false,
 	"mapName": "",
 	"mapInput": "dance01",
 	"title": "",
