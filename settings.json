@@ -19,7 +19,7 @@
 	"hideuiClips": true,
 	"goldEffectType": "picto",
 	"dumpTraces": false,
-	"dumpJSON": true,
+	"dumpJSON": false,
 	"readLOGS": true,
 	"offset": {
 		"moves": 0,
