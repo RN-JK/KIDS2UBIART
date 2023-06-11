@@ -21,6 +21,8 @@ def removeduplicate(it):
 def readLogs():
     print('Moves0: '+str(len(moves0)))
     print('Moves1: '+str(len(moves1)))
+    print('KinectMoves0: '+str(len(kinect_moves0)))
+    print('KinectMoves1: '+str(len(kinect_moves1)))
     print('Beats: '+str(len(beats)))
     print('Pictos: '+str(len(pictos)))
     print('Lyrics: '+str(len(lyrics)))
