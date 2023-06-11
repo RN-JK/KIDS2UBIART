@@ -953,8 +953,6 @@ try:
             kdancedata.read(4)
             kdancedata.read(4)
             kdancedata.read(4)
-            kdancedata.read(4)
-            kdancedata.read(4)
         elif classtype==b'':
             continue
         else:
