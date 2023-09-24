@@ -338,6 +338,7 @@ class UbiArt:
                 continue
             else:
                 ktape['Clips'].append(KaraokeClip)
+            #ktape['Clips'].append(KaraokeClip)
 
         json.dump(ktape,open('output/'+mapname+'/'+mapname.lower()+'_tml_karaoke.ktape.ckd','w'))
 
@@ -918,7 +919,7 @@ try:
                 kinect_moves0.append(move)
                 kdancedata.read(12)
             #kdancedata.read(24)
-
+        
         elif classtype==b'\x41\xF0\x00\x00':
             starttime=struct.unpack('>f',kdancedata.read(4))[0]
             kdancedata.read(4)
@@ -995,7 +996,7 @@ try:
                 goldeffect['effectType']=1
 
                 goldmoves.append(goldeffect)
-        elif classtype==b'\x42\x00\x00\x00' or classtype==b'\x42\x1C\x00\x00' or classtype==b'\x42\x20\x00\x00': #hide user interface
+        elif classtype==b'\x42\x1C\x00\x00' or classtype==b'\x42\x20\x00\x00': #hide user interface
             hideuitime=struct.unpack('>f',pictodata.read(4))[0]
             
             pictodata.read(4)
@@ -1006,15 +1007,18 @@ try:
                 hideuistarttime=hideuitime
             if classtype==b'\x42\x20\x00\x00':
                 hideuiendtime=hideuitime
-            if classtype==b'\x42\x00\x00\x00':
-                hideuiendduration=hideuitime
+            
+        elif classtype==b'\x42\x00\x00\x00': #gold move sound cues
+            goldeffecttime=struct.unpack('>f',pictodata.read(4))[0]
+            pictodata.read(4)
+
         elif classtype==b'':
             continue
         else:
             continue
 
     hideui.append({"time": 0,"duration": int(hideuistarttime*multiplier)})
-    hideui.append({"time": int(hideuiendtime*multiplier),"duration": int(hideuiendduration*multiplier)})
+    hideui.append({"time": int(hideuiendtime*multiplier),"duration": int(100000)})
 
 except:
     pass
